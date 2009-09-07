@@ -16,12 +16,12 @@
         <ul>
           	  <li><div id="username">
           	  <% if friendship.status == "requested" %>
-              <%= link_to "<image src='/images/hi.jpg'></image>",
+              <%= link_to "hi",
                :controller => :friendships,
                :action => :accept,
                :id => friendship.friend.login %>
               <% else %>   
-              <%= link_to "<image src='/images/bye.jpg'></image>",
+              <%= link_to "bye",
                :controller => :friendships,
                :action => :reject,
                :id => friendship.friend.login %> 
@@ -55,12 +55,12 @@
   				<% if current_user != user %>
     				<li><div id="username">
     					<% if Friendship.are_friends(current_user, user) %> 
-    						<%= link_to "<image src='/images/bye.jpg'></image>",
+    						<%= link_to "bye",
                   			:controller => :friendships,
                   			:action => :reject,
                   			:id => user.login %> <%=h user.login %>
                 	<% elsif current_user != user && logged_in?%>
-        					<%= link_to "<image src='/images/hi.jpg'></image>",
+        					<%= link_to "hi",
                   			:controller => :friendships,
                   			:action => :req,
                   			:id => user.login %> <%=h user.login %>
