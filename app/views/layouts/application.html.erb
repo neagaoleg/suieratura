@@ -32,7 +32,7 @@
         	 	 <br>
         	 	 <% if logged_in? %>
         				<% form_for current_user do |f| -%> <br>
-        					<div id="email"><%= current_user.login %>  <%= f.text_field :email %>  <%= submit_tag 'Search' %></div>
+        					<div id="email"><%= current_user.login %>  <%= f.text_field :email %>  <%= submit_tag 'Recreate' %></div>
         					<br><div id="flash_notice"><%= flash[:notice] %></div>
 						<% end %> 
 					<% else %>	
