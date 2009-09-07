@@ -1,0 +1,12 @@
+<%= error_messages_for :projimage %>
+
+<% form_for(:projimage, :url => projimages_path, 
+:html => { :multipart => true }) do |f| -%>
+<p>
+<label for="projimage">Upload A Project Image:</label>
+<%= f.file_field :uploaded_data %>
+</p>
+<p>
+<%= submit_tag 'Create' %>
+</p>
+<% end -%>

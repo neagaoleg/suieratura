@@ -1,0 +1,5 @@
+<h1>All Project Images</h1><br/>
+Click on the thumbnail to see larger size.<br/>
+<% for projimage in @projimages -%>
+<%= link_to image_tag(projimage.public_filename(:thumb)), projimage.public_filename %>
+<% end -%>

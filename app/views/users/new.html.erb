@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<td valign="middle" >
+
+			<%= error_messages_for :user %>
+			<% form_for :user, :url => users_path do |f| -%>
+
+			<div id="email"><label for="login">Username <%= f.text_field :login %></label></div>
+			<div id="email"><label for="email">Recomanda site sau nume <%= f.text_field :email %></label></div>
+			<div id="email"><label for="password">Password <%= f.password_field :password %></label></div>
+			<div id="email"><label for="password_confirmation">Confirm Password <%= f.password_field :password_confirmation %></label></div>
+			<div id="email"><%= submit_tag 'Sign up' %></div>
+			<% end -%>
+
+		</td>
+	<tr>
+</table>

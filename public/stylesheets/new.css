@@ -1,0 +1,91 @@
+#body
+{
+	background-color: #FEFEFE;
+}
+#username
+{
+	font-family: cursive;
+	color: #86A6E3;
+	font-size: 15pt;
+}
+#navbar UL
+{
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	color: #FFFFFF;
+	float: left;
+	width: 100%;
+	list-style: none;
+	font-weight: bold;
+	font-size: 13px;
+	/*+placement:shift 40px 0px;*/
+	position: relative;
+	left: 40px;
+	top: 0px;
+}
+#navbar UL LI
+{
+	display: inline-table;
+	color: #BAB9D9;
+	float: left;
+	font-family: cursive;
+}
+#navbar UL LI A
+{
+	padding: 0em;
+	background-color: transparent;
+	color: #85A5E2;
+	text-decoration: none;
+	float: left;
+}
+#head_logo
+{
+	/*+placement:shift 40px 0px;*/
+	position: relative;
+	left: 40px;
+	top: 0px;
+	color: #D5DDF0;
+	font-family: "Arial Black";
+	font-size: 40pt;
+}
+#oferte UL
+{
+	list-style: none;
+}
+#email
+{
+	border: 0px solid #A13434;
+	width: 400px;
+	height: 25px;
+	font-family: cursive;
+	padding: 0 1px 0 0;
+	color: #3E3E3E;
+	text-align: right;
+}
+#message
+{
+	font-family: cursive;
+	color: #514747;
+	font-size: 10pt;
+}
+#cereri UL
+{
+	list-style: none;
+}
+#navbar UL LI A:hover
+{
+	color: #2D70F0;
+}
+#flash_notice
+{
+	text-align: right;
+	font-family: cursive;
+	color: #6B7983;
+}
+#paginator
+{
+	font-family: cursive;
+	color: #8DAECC;
+	text-decoration: none;
+}

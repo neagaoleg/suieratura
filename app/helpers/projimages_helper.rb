@@ -1,0 +1,2 @@
+module ProjimagesHelper
+end
