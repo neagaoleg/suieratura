@@ -7,13 +7,13 @@ class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
-  validates_presence_of     :login, :email
+  validates_presence_of     :login
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :login,    :within => 6..40
-  validates_length_of       :email,    :within => 1..100
+  validates_length_of       :email,    :within => 0..200
   validates_uniqueness_of   :login, :case_sensitive => false
   before_save :encrypt_password
   
@@ -78,10 +78,15 @@ class User < ActiveRecord::Base
       projimages.find_by_primary(true)
   end
   
-  # Will display 5 users per page.  
+  # Will display 2 users per page.  
   def self.per_page
-      5
+      10
   end
+  
+  def self.search(search, page)
+  paginate :per_page => 10, :page => page,
+           :conditions => ['login or email like?', "%#{search}%"]
+	end
   
   protected
     # before filter 
@@ -96,5 +101,4 @@ class User < ActiveRecord::Base
     end
     
    
-         
 end

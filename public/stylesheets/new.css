@@ -63,6 +63,13 @@
 	color: #3E3E3E;
 	text-align: right;
 }
+#message1
+{
+	font-family: cursive;
+	color: #514747;
+	font-size: 10pt;
+	text-align: center;
+}
 #message
 {
 	font-family: cursive;

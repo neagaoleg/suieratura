@@ -5,10 +5,10 @@ class UsersController < ApplicationController
  # in_place_edit_for :current_user, :email
   
   def index
-  	@search = User.search(params[:search])
-    @users = @search.all
+  	@search = User.search(params[:search],params[:page])
+    #@search.all
   	#@users = User.find(:all)
-  	#@users = User.paginate :page => params[:page], :per_page => 3
+  	#@users = User.paginate :page => params[:page], :per_page => 2
   	#@users = User.paginate_by_user_id @user.id, :page => params[:page], :order => 'updated_at DESC'
   end
 

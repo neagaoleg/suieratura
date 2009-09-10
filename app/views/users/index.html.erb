@@ -4,11 +4,7 @@
 	<td valign='top' width="400" height="400">   
 
     <% if logged_in? %>
-    <!--
-        <tr>
-        <h2>Cereri</h2>
-        </tr>    
-    -->
+
     <div id="cereri">    
         
         
@@ -36,17 +32,11 @@
      
 	</td>
 	
-<!--
-  <tr>
-    <td><h2>Oferte</h2></td>
-  </tr>
--->
 	<td valign='top'>
 
 	<% if logged_in? %>
 	
-	<% search = User.login_or_email_like_all(current_user.email) %>
-	<% search.all %>
+	<% search = User.login_or_email_like(current_user.email).paginate(:page => params[:page]) %>
 	
 	<div id="oferte">
 	
@@ -72,7 +62,9 @@
 		</ul>
 		
 	</div>	
-
+	
+	<div id="message"><%= will_paginate search %></div>
+ 
 	<% end %>
 	
 	</td>

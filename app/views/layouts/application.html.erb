@@ -7,11 +7,18 @@
 	
        <%= stylesheet_link_tag 'new' %> 
        <%= javascript_include_tag :defaults %>
+      
+       
+       <!-- iconj.com dynamic favicon code -->
+<link rel="shortcut icon" href="http://www.iconj.com/favicon.php?user=neagaoleg" type="image/x-icon" /> 
+<link rel="icon" href="http://www.iconj.com/favicon2.php?user=neagaoleg" type="image/gif" /> 
+<!-- end of iconj.com dynamic favicon code -->
+
   </head>
   <body id="body">
   	<table>
 		<tr>
-    		<td valign='top' width="400">
+    		<td valign='top' width="425">
     			<div id="head_logo">Suieratura</div>
             	<div id='navbar'>
         			<ul>
@@ -22,7 +29,7 @@
 						<li><%= link_to "SignOut", logout_path %></li>	
 					<% else %>
 					    <li><%= link_to "SignIn", login_path %></li>
-						<li><%= link_to "SignUp", new_user_path %></li>
+						<li><%= link_to "Register", new_user_path %></li>
 					<% end %>
         			</ul>
             	</div>
@@ -31,8 +38,9 @@
    			<td valign='top'>
         	 	 <br>
         	 	 <% if logged_in? %>
-        				<% form_for current_user do |f| -%> <br>
-        					<div id="email"><%= current_user.login %>  <%= f.text_field :email %>  <%= submit_tag 'Recreate' %></div>
+        				<% form_for current_user do |f| -%> 
+        				<br>
+        				<div id="email"><%= current_user.login %>  <%= f.text_field :email %>  <%= submit_tag 'Research' %></div>
         					<br><div id="flash_notice"><%= flash[:notice] %></div>
 						<% end %> 
 					<% else %>	
