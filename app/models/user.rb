@@ -80,11 +80,11 @@ class User < ActiveRecord::Base
   
   # Will display 2 users per page.  
   def self.per_page
-      10
+      20
   end
   
   def self.search(search, page)
-  paginate :per_page => 10, :page => page,
+  paginate :per_page => 20, :page => page,
            :conditions => ['login or email like?', "%#{search}%"]
 	end
   
