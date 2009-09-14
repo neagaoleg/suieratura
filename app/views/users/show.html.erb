@@ -1,18 +1,60 @@
-<p>
-  <b>Login:</b>
-  <%=h @user.login %>
-</p>
+<table>
+	<tr>
+		<td valign="top" >
+			
+	<div id="oferte">
+		<ul><!--
+		    <li>
+  			<div id="message">
+							
+							Suieratura offers the functionality  <br>
+							to find and recreate queries colaboratively <br>
+							which can be used later on search engines by triple left_click -> right_click -> search with google <br>
+							find and make new friendships and research best queries results <br>
+							join with us on 15 october 2009 and fill free to send feedbacks on 												<div id="username">neagaoleg@gmail.com</div> 
+							
+							<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="8114453">
+								<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+							</form> 
+							</div>
+  			</li>
+  			
+  			<br>  -->
+  			
+			<% for user in @users %>
+ 				<% if current_user != user %>
+    				<li>
+    					<table>
+    						<tr>
+    							<td><div id="username"><%=h user.login %></div></td>
+    							<td><div id="message"><%=h user.email %></div></td>
+    						</tr>
+    					</table>
+    				</li>
+    				<% if Friendship.are_friends(current_user, user) %>
+    					<li><image src='/images/bye.jpg'></image></li>
+        			<% elsif current_user != user && logged_in?%>
+        				<li><%= link_to "<image src='/images/hi.jpg'></image>",
+                  			:controller => :friendships,
+                  			:action => :req,
+                  			:id => user.login %>
+                  		</li>
+        			<% end %>
+    			<% end %>    
+  			<% end %>	
+		
+  			<li><div id="message"><%= will_paginate @users %></div></li>	
+		</ul>
+		
+	</div>	
+	
+	 
+		
+		</td>
+	<tr>
+</table>
 
-<p>
-  <b>Email:</b>
-  <%=h @user.email %>
-</p>
 
-<p>
-  <b>Password:</b>
-  [secret]
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

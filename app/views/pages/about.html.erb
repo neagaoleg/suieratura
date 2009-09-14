@@ -1,6 +1,32 @@
 <table>
 	<tr>
 		<td valign="top" >
+			
+	<div id="oferte">
+		
+	<% search = User.login_or_email_like("neaga").paginate(:page => params[:page]) %>
+	
+		<ul>
+			<% for user in @users %>
+ 				<% if current_user != user %>
+    				<li><div id="username"><%=h user.login %></div></li>
+    				<li><div id="message"><%=h user.email %></div></li>
+    				<% if Friendship.are_friends(current_user, user) %>
+    					<li><image src='/images/bye.jpg'></image></li>
+        			<% elsif current_user != user && logged_in?%>
+        				<li><%= link_to "<image src='/images/hi.jpg'></image>",
+                  			:controller => :friendships,
+                  			:action => :req,
+                  			:id => user.login %>
+                  		</li>
+        			<% end %>
+    			<% end %>    
+  			<% end %>	
+		</ul>
+	</div>	
+	
+	<div id="message"><%= will_paginate search %></div> 
+		
 			<div id="message">
 							<br>
 							Suieratura offers the functionality  <br>

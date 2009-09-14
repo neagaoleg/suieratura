@@ -6,7 +6,7 @@
 {
 	font-family: cursive;
 	color: #86A6E3;
-	font-size: 15pt;
+	font-size: 10pt;
 }
 #navbar UL
 {
@@ -18,7 +18,7 @@
 	width: 100%;
 	list-style: none;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 15px;
 	/*+placement:shift 40px 0px;*/
 	position: relative;
 	left: 40px;
@@ -30,6 +30,7 @@
 	color: #BAB9D9;
 	float: left;
 	font-family: cursive;
+	padding: 5px;
 }
 #navbar UL LI A
 {

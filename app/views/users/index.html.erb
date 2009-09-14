@@ -7,29 +7,39 @@
 
     <div id="cereri">    
         
-        
         <% current_user.friendships.each do |friendship| %>
         <ul>
-          	  <li><div id="username">
+          	  <li>
+          	  	<table>
+          	  		<tr>
+    					<td>
+    						<div id="username">
           	  <% if friendship.status == "requested" %>
-              <%= link_to "<image src='images/hi.jpg'></image>",
+              <image src='images/hi.jpg'></image>
+          	  <%= link_to friendship.friend.login,
                :controller => :friendships,
                :action => :accept,
                :id => friendship.friend.login %>
-              <% else %>   
-              <%= link_to "<image src='images/bye.jpg'></image>",
+              <% else %>
+              <image src='images/bye.jpg'></image>   
+              <%= link_to friendship.friend.login,
                :controller => :friendships,
                :action => :reject,
                :id => friendship.friend.login %> 
               <% end %>
-          	  <%= friendship.friend.login %></div></li>
-          	  <li><div id="message"><%= friendship.friend.email %></div></li>
+          	  				</div>
+    					</td>
+    					<td><div id="message"><%= friendship.friend.email %></div></td>
+    				</tr>
+    			</table>
+          	  </li>
         </ul>   
         <% end %>  
-    </div>
-    <% end %>	
     
-     
+    </div>
+       
+    <% end %>	
+         
 	</td>
 	
 	<td valign='top'>
@@ -43,28 +53,43 @@
 		<ul>
 			<% for user in search %>
   				<% if current_user != user %>
-    				<li><div id="username">
+    				
+    				<li>
+    				<table>
+    						<tr>
+    						<td><div id="message"><%=h user.email %></div></td>
+    							<td>
+    								<div id="username">
     					<% if Friendship.are_friends(current_user, user) %> 
-    						<%= link_to "<image src='images/bye.jpg'></image>",
+    						
+    					<%= link_to user.login,
                   			:controller => :friendships,
                   			:action => :reject,
-                  			:id => user.login %> <%=h user.login %>
-                	<% elsif current_user != user && logged_in?%>
-        					<%= link_to "<image src='images/hi.jpg'></image>",
+                  			:id => user.login %> <image src='images/bye.jpg'></image>
+                		<% elsif current_user != user && logged_in?%>
+        				
+                			<%= link_to user.login,
                   			:controller => :friendships,
                   			:action => :req,
-                  			:id => user.login %> <%=h user.login %>
-        			<% end %>
-    				</div></li>
-    				<li><div id="message"><%=h user.email %></div></li>
+                  			:id => user.login %> <image src='images/hi.jpg'></image>
+        				<% end %>
+        							</div>
+        						</td>
+        						
+    						</tr>
+    				</table>
+    				
+    				
+    				</li><br>
     			<% end %>    
   			<% end %>
+  			<li><div id="message"><%= will_paginate search %></div></li>
 		</ul>
 		
 	</div>	
 	
-	<div id="message"><%= will_paginate search %></div>
- 
+	
+	
 	<% end %>
 	
 	</td>

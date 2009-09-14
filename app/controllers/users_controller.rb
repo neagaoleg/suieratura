@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   end
 
   def show  	
-    @user = User.find(params[:id])
+    @users = User.find(:all)
+    @users = User.paginate :page => params[:page], :order => 'updated_at DESC'
   end
 
   def destroy

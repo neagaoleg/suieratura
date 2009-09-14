@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
   
   # Will display 2 users per page.  
   def self.per_page
-      20
+      10
   end
   
   def self.search(search, page)
