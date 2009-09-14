@@ -40,7 +40,7 @@
         	 	 <% if logged_in? %>
         				<% form_for current_user do |f| -%> 
         				<br>
-        				<div id="email"><%= current_user.login %>  <%= f.text_field :email %>  <%= submit_tag 'Research' %></div>
+        				<div id="email"><%= current_user.login %> <%= submit_tag 'likes' %> <%= f.text_field :email %></div>
         					<br><div id="flash_notice"><%= flash[:notice] %></div>
 						<% end %> 
 					<% else %>	
