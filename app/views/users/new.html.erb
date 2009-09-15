@@ -5,10 +5,9 @@
 
 			<%= error_messages_for :user %>
 			<% form_for :user, :url => users_path do |f| -%>
-
-			<div id="email"><label for="email">What\Who do you like <%= f.text_field :email %></label></div>
-			<div id="email">Username (Login) <%= f.text_field :login %></div><br>
-			
+            
+			<div id="email">Researcher (Login) <%= f.text_field :login %></div>
+			<div id="email"><label for="email">Initial search terms <%= f.text_field :email %></label></div>	
 			<div id="email"><label for="password">Password <%= f.password_field :password %></label></div>
 			<div id="email"><label for="password_confirmation">Confirm Password <%= f.password_field :password_confirmation %></label></div>
 			<div id="email"><%= submit_tag 'Sign up' %></div>

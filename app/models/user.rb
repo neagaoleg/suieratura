@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :login,    :within => 6..40
   validates_length_of       :email,    :within => 0..200
-  validates_uniqueness_of   :login, :case_sensitive => false
+  # validates_uniqueness_of   :login, :case_sensitive => false
   before_save :encrypt_password
   
   # prevents a user from submitting a crafted form that bypasses activation

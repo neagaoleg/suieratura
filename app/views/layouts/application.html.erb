@@ -28,8 +28,8 @@
 				        <li><%= link_to "Update", edit_user_path(current_user) %></li>
 						<li><%= link_to "SignOut", logout_path %></li>	
 					<% else %>
-					    <li><%= link_to "SignIn", login_path %></li>
-						<li><%= link_to "Register", new_user_path %></li>
+					    <li><%= link_to "Continue", login_path %></li>
+						<li><%= link_to "New Research", new_user_path %></li>
 					<% end %>
         			</ul>
             	</div>
@@ -40,7 +40,7 @@
         	 	 <% if logged_in? %>
         				<% form_for current_user do |f| -%> 
         				<br>
-        				<div id="email"><%= current_user.login %> <%= submit_tag 'likes' %> <%= f.text_field :email %></div>
+        				<div id="email"><%= current_user.login %>  <%= f.text_field :email %> <%= submit_tag 'Search' %></div>
         					<br><div id="flash_notice"><%= flash[:notice] %></div>
 						<% end %> 
 					<% else %>	
