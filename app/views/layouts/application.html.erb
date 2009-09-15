@@ -25,11 +25,11 @@
         					
 				    <% if logged_in? %>
 				    	<li><%= link_to 'Home', {:controller => 'users'} %></li>
-				        <li><%= link_to "Update", edit_user_path(current_user) %></li>
-						<li><%= link_to "SignOut", logout_path %></li>	
+				        <li><%= link_to "NewResearch", new_user_path %></li>
+						<li><%= link_to "StopThis", logout_path %></li>	
 					<% else %>
-					    <li><%= link_to "Continue", login_path %></li>
-						<li><%= link_to "New Research", new_user_path %></li>
+						<li><%= link_to "NewResearch", new_user_path %></li>
+						<li><%= link_to "ContinuePast", login_path %></li>
 					<% end %>
         			</ul>
             	</div>
